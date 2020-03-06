@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Custom from "./App";
-// import './index.css';
+// import Custom from "./App";
+import "./App.css";
+// import Method from "./method";
+import Clock from "./clock";
+
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
@@ -9,9 +12,11 @@ import Custom from "./App";
 
 ReactDOM.render(
   <div>
-    <Custom link="https://www.google.com" linkText="Google" />,
+    {/* <Custom link="https://www.google.com" linkText="Google" />,
     <Custom link="https://www.facebook.com" linkText="facebook" />,
-    <Custom link="https://www.youtube.com" linkText="youtube" />
+     <Custom link="https://www.youtube.com" linkText="youtube" />
+   <Method /> */}
+    <Clock />
   </div>,
   document.getElementById("root")
 );
