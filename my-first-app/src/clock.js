@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import DigitalClock from "./digitalClock";
-import AnalogClock from "./analogClock";
+// import DigitalClock from "./digitalClock";
+// import AnalogClock from "./analogClock";
+import Logger from "./logger";
 
 class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTime: new Date().toLocaleString()
+      currentTime: new Date().toLocaleString(),
+      counter: 0
     };
     this.updateTime();
   }
@@ -15,7 +17,8 @@ class Clock extends Component {
     setInterval(
       () => {
         this.setState({
-          currentTime: new Date().toLocaleString()
+          currentTime: new Date().toLocaleString(),
+          counter: this.state.counter + 1
         });
       },
 
@@ -27,9 +30,13 @@ class Clock extends Component {
     // return <h1> {this.state.currentTime}</h1>
     return (
       <div>
-        {" "}
-        <DigitalClock time={this.state.currentTime} />;
-        <AnalogClock time={this.state.currentTime} />;
+        {/* <DigitalClock time={this.state.currentTime} />;
+        <AnalogClock time={this.state.currentTime} />; */}
+        {this.state.counter < 3 ? (
+          <Logger time={this.state.currentTime} />
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   }
