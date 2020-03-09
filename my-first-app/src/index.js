@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 // import Custom from "./App";
 import "./App.css";
+import MyEvents from "./events";
 // import Method from "./method";
 import Clock from "./clock";
 
@@ -16,7 +17,8 @@ ReactDOM.render(
     <Custom link="https://www.facebook.com" linkText="facebook" />,
      <Custom link="https://www.youtube.com" linkText="youtube" />
    <Method /> */}
-    <Clock />
+    {/* <Clock /> */}
+    <MyEvents />
   </div>,
   document.getElementById("root")
 );
