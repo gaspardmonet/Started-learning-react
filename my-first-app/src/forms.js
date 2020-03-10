@@ -25,6 +25,7 @@ class Forms extends Component {
     this.radioHandler = this.radioHandler.bind(this);
     this.checkboxHandler = this.checkboxHandler.bind(this);
     this.selectHandler = this.selectHandler.bind(this);
+    this.emailHandler = this.emailHandler.bind(this);
   }
 
   formHandler(event) {
@@ -70,6 +71,10 @@ class Forms extends Component {
     this.setState({
       selectGroup: event.target.value
     });
+  }
+
+  emailHandler() {
+    console.log(this.refs.subscriber.value);
   }
   render() {
     return (
@@ -167,6 +172,13 @@ class Forms extends Component {
           <option value="Ruby"> Ruby</option>
           <option value="Python"> Python</option>
         </select>
+        <br />
+        <br />
+        <label>
+          Email please
+          <input type="email" ref="subscriber" />
+          <button onClick={this.emailHandler}> Save</button>
+        </label>
       </div>
     );
   }
