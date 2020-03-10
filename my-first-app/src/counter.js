@@ -1,5 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 
-class Counter extends Component {}
+class Counter extends Component {
+  render() {
+    return (
+      <div>
+        <button onClick={this.props.increment}> + </button>
+        <span>{this.props.counter}</span>
+        <button onClick={this.props.decrement}> - </button>
+      </div>
+    );
+  }
+}
 
 export default Counter;

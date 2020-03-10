@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 // import Custom from "./App";
 import "./App.css";
+import Forms from "./forms";
 import MyEvents from "./events";
 // import Method from "./method";
 import Clock from "./clock";
 
 // import App from './App';
-// import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
 
 // var h1 = <h1 title="hello">hello world</h1>;
 
@@ -19,6 +20,7 @@ ReactDOM.render(
    <Method /> */}
     {/* <Clock /> */}
     <MyEvents />
+    <Forms />
   </div>,
   document.getElementById("root")
 );
@@ -26,4 +28,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.register();
+serviceWorker.register();
