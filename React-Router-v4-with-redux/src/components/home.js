@@ -47,7 +47,7 @@ class Home extends Component {
 }
 
 // is funtion m aap jo bh state mangwaengy wo is module m this.props s available hujaegi
-//jesy is madule m this.props.username le skty hen
+//jesy is madule m this.props.userName le skty hen
 
 function mapStateToProp(state) {
   //return object
