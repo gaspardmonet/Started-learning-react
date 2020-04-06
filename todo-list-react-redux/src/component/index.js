@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import { addTodo } from "../action/index";
+import { addTodo, deleteTodo } from "../action/index";
 
 
 class Home extends Component {
@@ -8,32 +8,50 @@ class Home extends Component {
     super(props);
     this.state = {
       todo: "",
-      todos: new Array(),
+      todos: [],
     };
 
     this.clickHandler = this.clickHandler.bind(this);
     this._changeUserInput = this._changeUserInput.bind(this);
+    this.delete = this.delete.bind(this);
+    // this.edit = this.edit.bind(this);
+
   }
   async clickHandler() {
-    console.log(this.props.Text);
-    console.log(this.props.id);
-    console.log(this.state.todo);
-    await this.props.onClick(this.state.todo);
-    this.state.todos.push(this.props.id + ' ' + this.props.Text)
+    // console.log(this.props.Text);
+    // console.log(this.props.id);
+    // console.log(this.state.todo);
+    await this.props.onClickAddTodo(this.state.todo);
+    this.state.todos.push(this.props.Text)
     this.setState({
       todo: ""
     });
   }
   _changeUserInput(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     // console.log(event);
     this.setState({
       todo: event.target.value
     });
-    console.log(this.state.todo);
+    // console.log(this.state.todo);
+  }
+  delete(event) {
+    var id = event.target.id;
+    console.log(`event.target.id is `, event.target.id);
+    var todosInstance = this.state.todos;
+    todosInstance.splice(id, 1);
+    this.setState({
+      todos: todosInstance
+    });
+    this.props.onClickX(id)
   }
 
+
+
   render() {
+    var listItem = this.state.todos.map((a, b) =>
+      <li key={b}  > {a}   <span onClick={this.delete} id={b}>  X</span></li>,
+    )
     return (
       <div>
         <h1>Todo List App </h1>
@@ -42,15 +60,14 @@ class Home extends Component {
           value={this.state.todo}
           onChange={this._changeUserInput}
         />
-        <button onClick={this.clickHandler}> Add todo</button>
+        <button onClick={this.clickHandler}> Add todo </button>
         <ul>
-        
+          {listItem}
         </ul>
       </div>
     );
-  }
+  };
 }
-
 function mapStateToProps(state) {
   return {
     Text: state.text,
@@ -60,8 +77,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onClick: text => {
+    onClickAddTodo: text => {
       dispatch(addTodo(text));
+    },
+    onClickX: (id, text) => {
+      dispatch(deleteTodo(id, text))
     }
   };
 }
