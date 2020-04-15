@@ -17,12 +17,12 @@ export default (state = [], action) => {
       console.log(`from reducer id after delete `, state.id);
       return state;
 
-    case "EDIT_TODO":
-      console.log(`from reducer  `, action.id);
-      return {
-        ...state,
-        text: action.text
-      }
+    // case "EDIT_TODO":
+    //   console.log(`from reducer  `, action.id);
+    //   return {
+    //     ...state,
+    //     text: action.text
+    //   }
     default:
       return state;
   }

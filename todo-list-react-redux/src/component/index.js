@@ -14,7 +14,6 @@ class Home extends Component {
     this.clickHandler = this.clickHandler.bind(this);
     this._changeUserInput = this._changeUserInput.bind(this);
     this.delete = this.delete.bind(this);
-    // this.edit = this.edit.bind(this);
 
   }
   async clickHandler() {
@@ -37,7 +36,9 @@ class Home extends Component {
   }
   delete(event) {
     var id = event.target.id;
+    console.log(event.target)
     console.log(`event.target.id is `, event.target.id);
+    console.log(`event.target.text is `, event.target.text);
     var todosInstance = this.state.todos;
     todosInstance.splice(id, 1);
     this.setState({
@@ -50,7 +51,7 @@ class Home extends Component {
 
   render() {
     var listItem = this.state.todos.map((a, b) =>
-      <li key={b}  > {a}   <span onClick={this.delete} id={b}>  X</span></li>,
+      <li key={b}> {a}<span onClick={this.delete} id={b} text={a}>  X</span></li>,
     )
     return (
       <div>
