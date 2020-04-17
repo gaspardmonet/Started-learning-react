@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 export default class About extends Component {
   home() {
     console.log(`about button`);
+    console.log(this.props.history)
     this.props.history.push("/");
   }
   contact() {
-    // this.props.history.push("/contact/");
+    this.props.history.push("/contact/");
   }
   render() {
     return (

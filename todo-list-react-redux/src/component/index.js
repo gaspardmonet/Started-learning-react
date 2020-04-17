@@ -51,7 +51,7 @@ class Home extends Component {
 
   render() {
     var listItem = this.state.todos.map((a, b) =>
-      <li key={b}> {a}<span onClick={this.delete} id={b} text={a}>  X</span></li>,
+      <li key={b}> {a}<span onClick={this.delete} id={b} >  X</span></li>,
     )
     return (
       <div>

@@ -6,9 +6,9 @@ export default class Navbar extends Component {
   render() {
     return (
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contacts</Link>
+        <Link to="/">Home</Link> <br />
+        <Link to="/about">About</Link><hr />
+        {/* <Link to="/contact">Contacts</Link> */}
       </div>
     );
   }

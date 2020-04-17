@@ -10,7 +10,7 @@ const customHistory = createBrowserHistory();
 
 export default function CustomRoute() {
   return (
-    <Router history={customHistory}>
+    <Router history1={customHistory}>
       <div>
         <Navbar />
 
